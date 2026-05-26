@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>reze cafe</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Franklin gothic, Helvetica, sans-serif;
+    }
+
+    body{
+      overflow:hidden;
+      background-color:#c9f4ff;
+      background-image:url(image.png);
+      background-repeat: no-repeat;
+      background-size: 75%;
+      background-position: center;
+      margin: 0;
+      height: 100vh;
+    } 
+
+    section{
+      position:relative;
+      width:100%;
+      min-height:100vh;
+      padding:20px 70px;
+      overflow:hidden;
+    }
+
+    /* ================= NAV ================= */
+
+    header{
+      width:100%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .logo{
+      width:80px;
+    }
+
+    nav{
+      flex:1;
+      display:flex;
+      justify-content:center;
+    }
+
+    nav ul{
+      display:flex;
+      gap:50px;
+      list-style:none;
+    }
+
+    nav ul li a{
+      text-decoration:none;
+      color:#7e3f3b;
+      font-size:18px;
+      font-weight:500;
+      transition:0.3s;
+    }
+
+    nav ul li a:hover{
+      color:#4e2e1b;
+    }
+
+    .empty{
+      width:80px;
+    }
+
+    /* ================= CONTENT ================= */
+
+    .content{
+      width:100%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-top:70px;
+    }
+
+    .textBox{
+      max-width:500px;
+      z-index:2;
+    }
+
+    .textBox h2{
+      font-size:5rem;
+      line-height:1.1em;
+      color:#2e2e2e;
+      font-weight:700;
+    }
+
+    .textBox h2 span{
+      color:#8f20c2;
+      transition:0.4s;
+    }
+
+    .textBox p{
+      margin-top:20px;
+      color:#555;
+      line-height:1.7;
+    }
+
+    .btn{
+      display:inline-block;
+      margin-top:25px;
+      padding:13px 30px;
+      background:#8f20c2;
+      color:#fff;
+      border-radius:30px;
+      text-decoration:none;
+      font-weight:600;
+      transition:0.4s;
+    }
+
+    .btn:hover{
+      transform:scale(1.05);
+    }
+
+    /* ================= IMAGE ================= */
+
+    .imgBox{
+      position:absolute;
+      right: 50px;
+      top:50%;
+      transform: translateY(-50%);
+      width:700px;
+      height:700px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      z-index:2;
+      pointer-events: none;
+    }
+
+    .mainDrink{
+      width:450px;
+      height: auto;
+      transition:0.4s;
+    }
+
+    /* ================= RIGHT SHAPE ================= */
+
+    .circle{
+      position:absolute;
+
+      width:700px;
+      height:700px;
+
+      background-image:url(thumb.svg);
+      background-repeat: no-repeat;
+
+      right:50px;
+      top:50%;
+
+      transform:translateY(-50%) rotate(45deg);
+
+      border-radius:80px;
+
+      box-shadow:0 0 60px rgba(0,0,0,0.15);
+
+      transition:0.5s;
+    }
+
+    /* ================= THUMB ================= */
+
+    .thumb{
+      position:absolute;
+      left:50%;
+      bottom:30px;
+
+      transform:translateX(-50%);
+
+      display:flex;
+      gap:30px;
+
+      list-style:none;
+      z-index:10;
+    }
+
+    .thumb li{
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .thumb li:hover{
+      transform:translateY(-15px);
+    }
+
+    .thumb img{
+      width: 180px;
+    }
+
+    /* ================= SNS ================= */
+
+    .social{
+      position:absolute;
+      right:35px;
+      top:50%;
+
+      transform:translateY(-50%);
+
+      list-style:none;
+      z-index:10;
+    }
+
+    .social li{
+      margin:20px 0;
+    }
+
+    .social li a{
+      text-decoration:none;
+      color:#000000;
+      font-size:30px;
+      font-weight:bold;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<section>
+
+  <!-- NAV -->
+  <header>
+
+    <img src="logo.png.png" class="logo">
+
+    <nav>
+      <ul>
+        <li><a href="#">홈</a></li>
+        <li><a href="#">메뉴</a></li>
+        <li><a href="#">찾아오시는 길</a></li>
+        <li><a href="#">연락</a></li>
+      </ul>
+    </nav>
+
+    <div class="empty"></div>
+
+  </header>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <div class="textBox">
+
+      <h2>
+        레제 카페<br>
+        Welcome <span id="changeText">Reze Cafe</span>
+      </h2>
+      
+      <p>
+        어서오세요. 레제 카페 입니다.<br>
+        나도 사실 학교에 가본 적 없어.<br>
+
+      <a href="#" class="btn" id="changeBtn">
+        더보기
+      </a>
+
+    </div>
+
+    <div class="imgBox">
+
+      <img src="3d coffee.png" class="mainDrink" id="mainImage">
+
+    </div>
+
+  </div>
+
+  <!-- THUMB -->
+  <ul class="thumb">
+
+    <li onclick="changeItem('무제-1.svg','#eee274')">
+      <img src="무제-1.svg">
+    </li>
+
+    <li onclick="changeItem('무제-3.svg','#1b0a0a')">
+      <img src="무제-3.svg">
+    </li>
+
+    <li onclick="changeItem('무제-2.svg','#d47153')">
+      <img src="무제-2.svg">
+    </li>
+
+  </ul>
+
+  <!-- RIGHT SHAPE -->
+  <div class="circle" id="circle"></div>
+
+  <!-- SNS -->
+  <ul class="social">
+
+    <li><a href="#">f</a></li>
+    <li><a href="#">t</a></li>
+    <li><a href="#">i</a></li>
+
+  </ul>
+
+</section>
+
+<script>
+
+  function changeItem(image, color,){
+
+    // 이미지 변경
+    document.getElementById("mainImage").src = image;
+
+    // 배경 도형 색 변경
+    document.getElementById("circle").style.background = color;
+
+    // 글자 색 변경
+    document.getElementById("changeText").style.color = color;
+
+    // 버튼 색 변경
+    document.getElementById("changeBtn").style.background = color;
+  }
+
+</script>
+
+</body>
+</html>
